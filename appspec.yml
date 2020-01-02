@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+files:
+  - source: scripts/index.php
+    destination: /var/www/html/
+hooks:
+  BeforeInstall:
+    - location: scripts/httpd_install.sh
+      timeout: 300
+  AfterInstall:
+    - location: scripts/httpd_restart.sh
+      timeout: 300
